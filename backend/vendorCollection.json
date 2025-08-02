@@ -1,0 +1,668 @@
+{
+    "info": {
+        "name": "Vendor Management System",
+        "_postman_id": "f1e1b1c2-1234-5678-9abc-def012345678",
+        "description": "Postman collection for Vendor Management System backend",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth - Login (Admin)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"email\": \"admin@company.com\",\n  \"password\": \"admin\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/auth/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Auth - Signup (Vendor)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Vendor User\",\n  \"email\": \"vendor@example.com\",\n  \"password\": \"vendor123\",\n  \"role\": \"vendor\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/auth/signup",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "auth",
+                        "signup"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Vendor - Login",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"email\": \"vendor@example.com\",\n  \"password\": \"vendor123\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/auth/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Vendor - Get Profile",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{vendor_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/profile",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "profile"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Vendor - My Attendance",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{vendor_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/my-attendance",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "my-attendance"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Vendor - My Assets",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{vendor_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/my-assets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "my-assets"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Vendor - My Documents",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{vendor_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/my-documents",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "my-documents"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Create Vendor",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"companyName\": \"Test Vendor Company\",\n  \"joiningDate\": \"2025-07-11T09:00:00Z\",\n  \"department\": \"IT\",\n  \"projectName\": \"Test Project\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/vendors",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "vendors"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - List Vendors",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/vendors",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "vendors"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Get Vendor by ID",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/vendors/{{vendor_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "vendors",
+                        "{{vendor_id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Update Vendor",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"companyName\": \"Updated Vendor Company\",\n  \"department\": \"HR\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/vendors/{{vendor_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "vendors",
+                        "{{vendor_id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Create Asset",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Laptop\",\n  \"type\": \"laptop\",\n  \"serialNumber\": \"SN123456\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/assets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "assets"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - List Assets",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/assets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "assets"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Update Asset",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Updated Laptop\",\n  \"status\": \"maintenance\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/assets/{{asset_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "assets",
+                        "{{asset_id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Assign Asset",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"vendorId\": \"{{vendor_id}}\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/assets/{{asset_id}}/assign",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "assets",
+                        "{{asset_id}}",
+                        "assign"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Return Asset",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"vendorId\": \"{{vendor_id}}\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/assets/{{asset_id}}/return",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "assets",
+                        "{{asset_id}}",
+                        "return"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Upload Document",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": ""
+                        },
+                        {
+                            "key": "vendorId",
+                            "value": "{{vendor_id}}",
+                            "type": "text"
+                        },
+                        {
+                            "key": "type",
+                            "value": "joining_letter",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/documents",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "documents"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - List Documents",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/documents",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "documents"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Get Document by ID",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/documents/{{document_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "documents",
+                        "{{document_id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Delete Document",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/documents/{{document_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "documents",
+                        "{{document_id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - List Attendance",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/attendance",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "attendance"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Admin - Get Vendor Attendance",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/admin/attendance/{{vendor_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "admin",
+                        "attendance",
+                        "{{vendor_id}}"
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "admin_token",
+            "value": ""
+        },
+        {
+            "key": "vendor_token",
+            "value": ""
+        },
+        {
+            "key": "vendor_id",
+            "value": ""
+        },
+        {
+            "key": "asset_id",
+            "value": ""
+        },
+        {
+            "key": "document_id",
+            "value": ""
+        }
+    ]
+}
